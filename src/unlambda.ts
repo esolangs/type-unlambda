@@ -1,5 +1,5 @@
 /**
- * index.ts - Unlambda interpreter entry.
+ * unlambda.ts - Unlambda interpreter entry.
  * 
  * @author CismonX <admin@cismon.net>
  * @license MIT
@@ -23,7 +23,5 @@ type EvalResultOutput<T> = T extends [infer F, [infer I, infer O, infer C]] ? O 
  * 
  * Returns the output of program execution, or `never` if something went wrong.
  */
-type Unlambda<Code extends string, Input extends string = ''> = 
+export type Unlambda<Code extends string, Input extends string = ''> = 
     EvalResultOutput<Eval<ParseResultValue<Parse<Code>>, [], [Input, '', '']>>;
-
-export default Unlambda;

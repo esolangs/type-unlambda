@@ -1,6 +1,6 @@
 {
-    "name": "type-unlambda",
-    "version": "0.1.0",
+    "name": "@esolangs/type-unlambda",
+    "version": "0.1.1",
     "description": "Unlambda interpreter implemented in TypeScript's type system",
     "keywords": [
         "Unlambda",
