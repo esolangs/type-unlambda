@@ -1,0 +1,26 @@
+{
+    "name": "type-unlambda",
+    "version": "0.1.0",
+    "description": "Unlambda interpreter implemented in TypeScript's type system",
+    "keywords": [
+        "Unlambda",
+        "interpreter",
+        "esoteric-language"
+    ],
+    "repository": {
+        "url": "https://github.com/esolangs/type-unlambda",
+        "type": "git"
+    },
+    "author": {
+        "name": "CismonX",
+        "email": "admin@cismon.net",
+        "url": "https://cismon.net"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^4.1.0-dev.20201102"
+    },
+    "peerDependencies": {
+        "typescript": "^4.1.0-dev.20201102"
+    }
+}
