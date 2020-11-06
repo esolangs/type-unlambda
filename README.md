@@ -9,6 +9,7 @@ type-unlambda - [Unlambda](http://www.madore.org/~david/programs/unlambda) inter
 Installation:
 
 ```sh
+npm install --save-dev typescript@next
 npm install --save-dev @esolangs/type-unlambda
 ```
 
@@ -28,7 +29,7 @@ Screenshots:
 
 ## Notes
 
-You're lilely to get the following error when trying to run a program with type-unlambda:
+You're likely to get the following error when trying to run a program with type-unlambda:
 
 > Type instantiation is excessively deep and possibly infinite.ts(2589).
 
@@ -43,6 +44,6 @@ if (instantiationDepth === 50 || instantiationCount >= 5000000) {
 }
 ```
 
-You may expect that there is an option somewhere where this limit can be configured, like `-ftemplate-depth=n` in gcc/clang. Unfortuanately, there isn't, [and it's likely to stay that way](https://github.com/microsoft/TypeScript/pull/29602).
+You may expect that there is an option somewhere where this limit can be configured, like `-ftemplate-depth=n` in gcc/clang. Unfortunately, there isn't, [and it's likely to stay that way](https://github.com/microsoft/TypeScript/pull/29602).
 
-To workaround this limitation, we modify the code of `tsserver` or `tsc` and loosen these limits until the error no longer applies. Changing `instantiationDepth` to `1000` is sufficient to run the example above.
+To workaround this limitation, we modify the code of `tsserver` or `tsc` in `node_modules` to loosen these limits until the error no longer applies. Changing `instantiationDepth` to `1000` is sufficient to run the example above.
