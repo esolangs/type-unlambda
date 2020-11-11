@@ -9,7 +9,7 @@ type-unlambda - [Unlambda](http://www.madore.org/~david/programs/unlambda) inter
 Installation:
 
 ```sh
-npm install --save-dev typescript@next
+npm install --save-dev typescript@rc
 npm install --save-dev @esolangs/type-unlambda
 ```
 
