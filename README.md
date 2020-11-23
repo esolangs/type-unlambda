@@ -9,7 +9,7 @@ type-unlambda - [Unlambda](http://www.madore.org/~david/programs/unlambda) inter
 Installation:
 
 ```sh
-npm install --save-dev typescript@rc
+npm install --save-dev typescript
 npm install --save-dev @esolangs/type-unlambda
 ```
 
@@ -33,7 +33,7 @@ You're likely to get the following error when trying to run a program with type-
 
 > Type instantiation is excessively deep and possibly infinite.ts(2589).
 
-To write loops in TypeScript's type system, we have to use recursions, like we do in other purely functional programming languages. However, TypeScript's type system is not meant for general purpose programming, and recursion has its limits.
+To write loops in TypeScript's type system, we have to use recursions, like we do in other purely functional programming languages. Meanwhile, we use [CPS](https://en.wikipedia.org/wiki/Continuation-passing_style) to implement continuations, which also introduces heavy recursion. However, TypeScript's type system is not meant for general purpose programming, and recursion has its limits.
 
 In [src/compiler/checker.ts](https://raw.githubusercontent.com/microsoft/TypeScript/release-4.1/src/compiler/checker.ts), there is a hard-coded limit for type instantiation:
 
@@ -44,6 +44,6 @@ if (instantiationDepth === 50 || instantiationCount >= 5000000) {
 }
 ```
 
-You may expect that there is an option somewhere where this limit can be configured, like `-ftemplate-depth=n` in gcc/clang. Unfortunately, there isn't, [and it's likely to stay that way](https://github.com/microsoft/TypeScript/pull/29602).
+You may expect that there is an option somewhere that this limit can be configured, like `-ftemplate-depth=n` in gcc/clang. Unfortunately, there isn't, [and it's likely to stay that way](https://github.com/microsoft/TypeScript/pull/29602).
 
-To workaround this limitation, we modify the code of `tsserver` or `tsc` in `node_modules` to loosen these limits until the error no longer applies. Changing `instantiationDepth` to `1000` is sufficient to run the example above.
+To workaround this limitation, we modify the code of `tsserver` or `tsc` in `node_modules` until the error no longer applies. Changing `instantiationDepth` to `1000` is sufficient to run the example above.
