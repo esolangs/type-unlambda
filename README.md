@@ -13,14 +13,14 @@ npm install --save-dev typescript
 npm install --save-dev @esolangs/type-unlambda
 ```
 
-Usage:
+Example usage:
 
 ```typescript
 import Unlambda from '@esolangs/type-unlambda';
 
 type Code = '``@c`d``s`|k`@c';
 type Input = 'Hello!';
-type Output = Unlambda<Code, Input>; // Output == '!olleH'
+type Output = Unlambda<Code, Input>;  // Output == '!olleH'
 ```
 
 Screenshots:
